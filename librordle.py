@@ -6,14 +6,16 @@ chosenWord = input("Type today's word.\n")
 #print(chosenWord)
 d = enchant.Dict("en_US")
 if (d.check(chosenWord)):
-    print("that's a word")
-    time.sleep(1.0)
+    #print("that's a word")
+    #time.sleep(1.0)
+    pass
 else:
     print("that's not a word")
     time.sleep(2.0)
     sys.exit("choose a real word")
 if (len(chosenWord) == 5):
-    print("okay that word works")
+    #print("okay that word works")
+    print("Today's word has been chosen. The game will begin shortly.")
     time.sleep(2.0)
     os.system("cls")
 else:
@@ -52,7 +54,6 @@ for bigLoop in range(6):
         currentStatus[i] = firstGuess[i]
     #print(currentStatus)
     for i in range(5):
-        #***This section of code works***
         #if (correctLetterAndPosition[i] == True):
         #    pass
         if (chosenWord[i] == firstGuess[i]):
@@ -60,7 +61,6 @@ for bigLoop in range(6):
             correctLetter[i] = True
             correctLetterAndPosition[i] = True
             #currentStatus[i] = firstGuess[i]
-        #***This section of code works***
         else:
             for j in range(5):
                 if (j == i):
@@ -79,10 +79,10 @@ for bigLoop in range(6):
         else:
             completionProgress[k] = "None"
     #print("This is what you have guessed:")
-    print(currentStatus)
+    #print(currentStatus)
     if (bigLoop == 0):
-        print("This is what you have guessed:")
-        print("Here is your progress with each letter. 'None' means the letter is not in the word,\n'Letter' means the letter is in the word but in the wrong position,\nand 'Letter+Position' means the letter is in the right place.")
+        #print("This is what you have guessed.")
+        print("Below is your progress with each letter. 'None' means the letter is not in the word,\n'Letter' means the letter is in the word but in the wrong position,\nand 'Letter+Position' means the letter is in the right place.")
     print(completionProgress)
     if (correctLetter == [True, True, True, True, True]):
         print("Congratulations, you won!")
