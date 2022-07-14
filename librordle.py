@@ -2,26 +2,34 @@ import time
 import os
 import enchant
 import sys
+from colorama import Fore
+from colorama import Style
+from colorama import Back
 chosenWord = input("Type today's word.\n")
 #print(chosenWord)
 d = enchant.Dict("en_US")
-if (d.check(chosenWord)):
-    #print("that's a word")
-    #time.sleep(1.0)
-    pass
-else:
-    print("that's not a word")
-    time.sleep(2.0)
-    sys.exit("choose a real word")
-if (len(chosenWord) == 5):
-    #print("okay that word works")
-    print("Today's word has been chosen. The game will begin shortly.")
-    time.sleep(2.0)
-    os.system("cls")
-else:
-    print("that's not the right length")
-    time.sleep(2.0)
-    sys.exit("choose a word that's the correct length")
+realWord = False
+while (not realWord):
+    if (d.check(chosenWord)):
+        #print("that's a word")
+        #time.sleep(1.0)
+        realWord = True
+    else:
+        print("that's not a word")
+        time.sleep(2.0)
+        #sys.exit("choose a real word")
+goodLength = False
+while (not goodLength):
+    if (len(chosenWord) == 5):
+        #print("okay that word works")
+        print("Today's word has been chosen. The game will begin shortly.")
+        goodLength = True
+        time.sleep(2.0)
+        os.system("cls")
+    else:
+        print("that's not the right length")
+        time.sleep(2.0)
+        #sys.exit("choose a word that's the correct length")
 #firstGuess = input("Enter your first guess.\n")
 #letter1 = chosenWord[0]
 #letter2 = chosenWord[1]
@@ -73,17 +81,23 @@ for bigLoop in range(6):
                     #currentStatus[i] = firstGuess[i]
     for k in range(5):
         if (correctLetterAndPosition[k] == True):
-            completionProgress[k] = "Letter+Position"
+            #completionProgress[k] = "Letter+Position"
+            completionProgress[k] = Back.GREEN + firstGuess[k] + Style.RESET_ALL + " "
         elif (correctLetter[k] == True and correctLetterAndPosition[k] == False):
-            completionProgress[k] = "Letter"
+            #completionProgress[k] = "Letter"
+            completionProgress[k] = Back.YELLOW + firstGuess[k] + Style.RESET_ALL + " "
         else:
-            completionProgress[k] = "None"
+            #completionProgress[k] = "None"
+            completionProgress[k] = Back.RED + firstGuess[k] + Style.RESET_ALL + " "
     #print("This is what you have guessed:")
     #print(currentStatus)
     if (bigLoop == 0):
         #print("This is what you have guessed.")
-        print("Below is your progress with each letter. 'None' means the letter is not in the word,\n'Letter' means the letter is in the word but in the wrong position,\nand 'Letter+Position' means the letter is in the right place.")
-    print(completionProgress)
+        print("Below is your progress with each letter. A red background means the letter is not in the word,\nA yellow background means the letter is in the word but in the wrong position,\nand a green background means the letter is in the right place.")
+    #print(completionProgress)
+    for l in range(5):
+        print(completionProgress[l], end='')
+    print(Style.RESET_ALL)
     if (correctLetter == [True, True, True, True, True]):
         print("Congratulations, you won!")
         time.sleep(20)
