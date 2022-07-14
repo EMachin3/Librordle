@@ -1,2 +1,2 @@
 # Librordle
-My basic attempt at a Wordle clone. Requires pyenchant.
+My basic attempt at a Wordle clone. Requires pyenchant and colorama.
