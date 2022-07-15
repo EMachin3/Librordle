@@ -17,6 +17,7 @@ while (not realWord):
     else:
         print("that's not a word")
         time.sleep(2.0)
+        chosenWord = input("Type today's word.\n")
         #sys.exit("choose a real word")
 goodLength = False
 while (not goodLength):
@@ -29,6 +30,7 @@ while (not goodLength):
     else:
         print("that's not the right length")
         time.sleep(2.0)
+        chosenWord = input("Type today's word.\n")
         #sys.exit("choose a word that's the correct length")
 #firstGuess = input("Enter your first guess.\n")
 #letter1 = chosenWord[0]
@@ -77,6 +79,13 @@ list.append( Letters("y") )
 list.append( Letters("z") )
 #print(letter1 + letter2 + letter3 + letter4 +letter5)
 validWord = False
+print("Welcome to...")
+print(" _     _ _                       _ _      ")
+print("| |   (_) |                     | | |     ")
+print("| |    _| |__  _ __ ___  _ __ __| | | ___ ")
+print("| |   | | '_ \\| '__/ _ \\| '__/ _` | |/ _ \\")
+print("| |___| | |_) | | | (_) | | | (_| | |  __/")
+print("\_____/_|_.__/|_|  \___/|_|  \__,_|_|\___|")
 for bigLoop in range(6):
     while (not validWord):
         firstGuess = input("Enter guess number " + str(bigLoop + 1) + ".\n")
