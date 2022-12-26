@@ -38,32 +38,10 @@ class Letters:
     def __init__(self, n):
         self.name = n
 list=[]
-list.append( Letters("a") )
-list.append( Letters("b") )
-list.append( Letters("c") )
-list.append( Letters("d") )
-list.append( Letters("e") )
-list.append( Letters("f") )
-list.append( Letters("g") )
-list.append( Letters("h") )
-list.append( Letters("i") )
-list.append( Letters("j") )
-list.append( Letters("k") )
-list.append( Letters("l") )
-list.append( Letters("m") )
-list.append( Letters("n") )
-list.append( Letters("o") )
-list.append( Letters("p") )
-list.append( Letters("q") )
-list.append( Letters("r") )
-list.append( Letters("s") )
-list.append( Letters("t") )
-list.append( Letters("u") )
-list.append( Letters("v") )
-list.append( Letters("w") )
-list.append( Letters("x") )
-list.append( Letters("y") )
-list.append( Letters("z") )
+with open('letters.txt', 'r') as file:
+    for line in file:
+        for letter in line.split():
+            list.append ( Letters(letter) )
 validWord = False
 print("Welcome to...")
 print(" _     _ _                       _ _      ")
